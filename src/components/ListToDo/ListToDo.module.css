@@ -1,0 +1,37 @@
+.todoItem {
+	display: flex;
+	justify-content: space-around;
+	border: 3px solid teal;
+	width: 800px;
+	border-radius: 5px;
+	padding: 15px 15px;
+	align-items: center;
+	margin-bottom: 10px;
+	gap: 2rem;
+	margin-bottom: 5px;
+}
+.mainTodo {
+	margin: 0 auto;
+	width: 900px;
+}
+.author {
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+.todo {
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+.btnTodo {
+	background: yellow;
+	color: blue;
+	font-size: 1rem;
+	font-weight: bold;
+	border: none;
+	padding: 15px 10px;
+	text-decoration: none;
+}
+.btnTodo:hover {
+	background: teal;
+	color: #fff;
+}

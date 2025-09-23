@@ -1,0 +1,16 @@
+.form {
+  border: 1px solid teal;
+  margin: 11px auto;
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  background: -webkit-linear-gradient(90deg, #7655c3, #7655c3, #7554c1);
+  background: linear-gradient(90deg, #7655c3, #7655c3, #7554c1);
+}
+.input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

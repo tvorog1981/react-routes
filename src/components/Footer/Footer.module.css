@@ -1,0 +1,17 @@
+.footer {
+	position: fixed;
+	left: 400px;
+	bottom: 0;
+	/* Добавим цвет и ширину блока для наглядности*/
+	display: flex;
+	justify-content: center;
+	width: 1200px;
+	color: #fff;
+	font-size: 17px;
+	margin-bottom: 4px;
+	padding: 10px;
+	margin-top: 2px;
+	gap: 20px;
+	background: -webkit-linear-gradient(90deg, #7655c3, #7655c3, #7554c1);
+	background: linear-gradient(90deg, #7655c3, #7655c3, #7554c1);
+}

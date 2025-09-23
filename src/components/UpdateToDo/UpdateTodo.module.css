@@ -1,0 +1,12 @@
+.updateTodo {
+  margin: 130px auto;
+  padding: 25px;
+  border: 1px solid gray;
+  width: 900px;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

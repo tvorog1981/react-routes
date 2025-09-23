@@ -1,0 +1,41 @@
+.todoMain {
+  margin: 9rem auto;
+  width: 900px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  border: 3px solid teal;
+  border-radius: 3px;
+  width: 900px;
+  background-color: gray;
+  color: #fff;
+  font-size: 2rem;
+  padding: 35px;
+}
+.todoShow {
+  padding: 15px;
+}
+.author {
+  padding: 15px;
+}
+
+.complited {
+  padding: 15px;
+}
+.btn {
+  padding: 15px 15px;
+  background: yellow;
+  font-size: 1.3rem;
+  border-radius: 5px;
+  text-transform: uppercase;
+  border: none;
+}
+.btn:hover {
+  cursor: pointer;
+  background: teal;
+  color: #fff;
+}

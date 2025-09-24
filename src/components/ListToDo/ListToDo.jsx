@@ -1,11 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback, useMemo } from "react";
 import styles from "./ListToDo.module.css";
-import Button from "../../UI/Button/Button";
+import Input from "../../UI/Input/Input";
+
 import { Link } from "react-router-dom";
 
 const ListToDo = () => {
   const [todos, setTodos] = useState([]);
+  const [searchTodo, setSearchTodo] = useState("");
   const [fetchToServer, setFetchToServer] = useState(false);
+
   useEffect(() => {
     getDataTodos();
   }, [fetchToServer]);
@@ -25,34 +28,55 @@ const ListToDo = () => {
       },
     })
       .then((data) => data.json())
-      .then((d) => setTodos(d));
+      .then((d) => {
+        setTodos(d);
+      });
   };
 
+  const filterTodo = () => {
+    if (searchTodo != "") {
+      return todos.filter(({ todo }) =>
+        todo.toLowerCase().includes(searchTodo.toLowerCase())
+      );
+    }
+    return todos;
+  };
+
+  const m = useCallback(() => filterTodo(), [searchTodo]);
   return (
     <div className={styles.mainTodo}>
-      {todos.map(({ id, author, todo, complited }) => {
-        return (
-          <div key={id} className={styles.todoItem}>
-            <div className={styles.author}>{author}</div>
-            <div className={styles.todo}>
-              {complited ? (
-                <span style={{ textDecoration: "line-through" }}>{todo}</span>
-              ) : (
-                <span>{todo}</span>
-              )}
+      Поиск:&nbsp;{" "}
+      <Input
+        value={searchTodo}
+        onChange={(e) => setSearchTodo(e.target.value)}
+      />
+      {filterTodo().length > 0 ? (
+        filterTodo().map(({ id, author, todo, complited }) => {
+          return (
+            <div key={id} className={styles.todoItem}>
+              <div className={styles.author}>{author}</div>
+              <div className={styles.todo}>
+                {complited ? (
+                  <span style={{ textDecoration: "line-through" }}>{todo}</span>
+                ) : (
+                  <span>{todo}</span>
+                )}
+              </div>
+              <Link to={`/update-todo/${id}`} className={styles.btnTodo}>
+                Обновить
+              </Link>
+              <Link onClick={() => deleteTodo(id)} className={styles.btnTodo}>
+                Удалить
+              </Link>
+              <Link to={`/showTodo/${id}`} className={styles.btnTodo}>
+                Просмотр
+              </Link>
             </div>
-            <Link to={`/update-todo/${id}`} className={styles.btnTodo}>
-              Обновить
-            </Link>
-            <Link onClick={() => deleteTodo(id)} className={styles.btnTodo}>
-              Удалить
-            </Link>
-            <Link to={`/showTodo/${id}`} className={styles.btnTodo}>
-              Просмотр
-            </Link>
-          </div>
-        );
-      })}
+          );
+        })
+      ) : (
+        <div style={{ color: "red", fontSize: "20px" }}>Нет списка дел</div>
+      )}
     </div>
   );
 };

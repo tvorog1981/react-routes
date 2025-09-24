@@ -1,28 +1,3 @@
 {
-  "todos": [
-    {
-      "id": "7dd6",
-      "author": "Денискина Е. Н",
-      "todo": "Закончить курсы астрологии",
-      "complited": true
-    },
-    {
-      "id": "fba2",
-      "author": "Сметанкин Д. Н.",
-      "todo": "Купить дом",
-      "complited": false
-    },
-    {
-      "id": "4e7d",
-      "author": "Максакова Ю. М.",
-      "todo": "Купить дачу",
-      "complited": true
-    },
-    {
-      "id": "9b76",
-      "author": "Шашков И. А.",
-      "todo": "Найти программиста 1с",
-      "complited": true
-    }
-  ]
+  "todos": []
 }
